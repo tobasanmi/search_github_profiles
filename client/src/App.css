@@ -47,7 +47,6 @@ li {
     padding: 20px;
     font-size: 20px;
     font-weight: bold;
-    text-decoration: none;
 }
 
 .repos:hover {
@@ -96,11 +95,13 @@ li {
 #home {
     color: white;
     font-size: large;
+    text-decoration: none;
 }
 
 #search-profiles {
     color: white;
     font-size: large;
+    text-decoration: none;
 }
 
 #about {
@@ -112,6 +113,11 @@ li {
 #nav {
     float: right;
     clear: both;
+}
+
+footer {
+    text-align: center;
+    padding-bottom: 10px;
 }
 
 
