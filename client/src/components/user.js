@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import { Context } from './state/githubState'
 import {Link} from 'react-router-dom'
 import axios from 'axios';
-import { GET_REPOS, GET_SINGLE_USER, SET_LOADING } from '../actions/actionTypes';
+import { GET_REPOS, GET_SINGLE_USER} from '../actions/actionTypes';
 
 export default function User({match}) {
   // console.log(match);
@@ -27,63 +27,61 @@ export default function User({match}) {
       })
     }).catch(err => err)
   },[])
-  console.log(state.repos);
+  console.log(state.user);
   const repos = state.repos;
   const userDetails = state.user
   return (
-    <div>
-      <Link to='/' className='btn btn-light'>
+    <div style= {{background:"#337ab7"}}>
+      <Link to='/search' className='btn btn-light' style = {{margin:"10px"}}>
         Back To Search
       </Link>
-      <div className='card grid-2'>
-        <div className='all-center'>
+      <div className='card' style = {{margin:'10px'}}>
+        <div className = 'profile-details'>
+        <div className='profile-details-left'>
           <img
             src={userDetails.avatar_url}
             className='round-img'
             alt=''
-            style={{ width: '150px' }}
           />
-          <h1>{userDetails.name}</h1>
-          <p>Location:{userDetails.location}</p>
-          <p>Email : {userDetails.email}  </p>
+          <h4>{userDetails.name}</h4>
+          <p><strong>Location:</strong>  {userDetails.location}</p>
+          <p><strong>Email :</strong>  {userDetails.email}  </p>
         </div>
-        <div>
-          <a href={userDetails.html_url} className='btn btn-dark my-1' target = '_blank'>
+        <div className = 'profile-details-right'>
+            <p>
+                  <strong>Username: </strong> {userDetails.login}
+            </p>
+
+            <p>
+              <strong>Company: </strong> {userDetails.company}
+            </p>
+
+            <p>
+                  <strong>Website:  </strong>   {userDetails.website} 
+            </p>
+          <a href={userDetails.html_url} className='btn btn-primary my-1' target = '_blank'>
             Go to  Github Profile
           </a>
-          <ul>
-            <li>
-                  <strong>Username: </strong> {userDetails.login}
-            </li>
-
-            <li>
-                  <strong>Company: </strong> {userDetails.company}
-            </li>
-
-            <li>
-                  <strong>Website:  </strong>   {userDetails.website} 
-            </li>
-          </ul>
+        </div>
         </div>
       </div>
-      <div className='card text-center'>
-        <ul>
-          <li> Followers: {userDetails.followers}</li>
-          <li> Public Repos: {userDetails.public_repos}</li>
-          <li> Gists: {userDetails.public_gist}</li> 
+      <div className='card ' style = {{margin:'10px'}}>
+        <ul className = 'followers-container'>
+          <li className = 'followers'><strong>Followers:</strong>  {userDetails.followers}</li>
+          <li className= 'public-repo'><strong>Public Repos:</strong>  {userDetails.public_repos}</li>
+          <li className = 'gist'> <strong>Gists:</strong> {userDetails.public_gist}</li> 
         </ul>
-        {/* <div className='badge badge-primary'>Followers: kkkk</div> 
-        <div className='badge badge-success'>Following: </div>
-        <div className='badge badge-light'>Public Repos: </div>
-        <div className='badge badge-dark'>Public Gists: </div> */}
       </div>
-      {repos.map(repo =>{
+      <div>
+      <h2 style = {{textAlign:'center' ,color:'white' , padding:"5px"}}>REPOSITORIES</h2>
+      {repos.map(repo =>{ 
         return (
-          <ul key = {repo.id}>
-            <li><a href ={repo.svn_url} target="_blank" >{repo.name}</a></li>
+          <ul key = {repo.id} className = 'card' style = {{margin:'10px'}}>
+            <li className = 'repos'><a href ={repo.svn_url} target="_blank"  style = {{textDecoration:'none', color:"black"}}>{repo.name}</a></li>
           </ul>
         )
       })}
+      </div>
     </div>
   )
 }

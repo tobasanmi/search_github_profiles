@@ -44,14 +44,14 @@ console.log('users',users);
        <form onSubmit = {(e) => {
          e.preventDefault()
          setQuery(e.target.elements.query.value)
-       }}>
+       }} className = "form">
        <input type="text" className = "form-control" id = "search-input" name = 'query'/>
-       <button>Searh User</button>
-       </form>
+       <button className = "search-btn">Searh User</button>
+       </form> 
       </div>
       
       {loading && <div>Loading ... </div> }
-      <div>
+      <div className = "grid-container">
        {users.map(user => {
          return (
           <UserItem key = {user.id} user = {user}/>

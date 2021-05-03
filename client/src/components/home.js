@@ -30,10 +30,10 @@ export default function Home() {
         let randomUsers = state.randomUsers
         console.log('randon',randomUsers);
   return (
-    <div className = 'container'>
+    <div className = ''>
       <NavBar/>
-      <div>
         {loading && <div>Loading ... </div> }
+      <div className = 'grid-container'>
          {randomUsers.map(user => { 
            return (
               <UserItem key = {user.id} user ={user}/>

@@ -1,14 +1,140 @@
 .grid-container {
     display: grid;
-    grid-template-columns: auto auto;
-    background-color: #2196F3;
-    padding: 10px;
+    grid-template-columns: 30% 30% 30%;
+    /* background-color: #337ab7; */
+    padding: 20px;
+    justify-content: space-around;
+    grid-row-gap: 20px;
 }
 
 .grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
+    background-color: white;
     padding: 20px;
     font-size: 30px;
     text-align: center;
+    border: 1px dotted black;
+}
+
+.round-image {
+    width: 100px;
+    border-radius: 50px;
+}
+
+.round-img {
+    border-radius: 300px;
+    width: 200px;
+    padding: 10px;
+}
+
+.profile-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 10px 10px 10px 110px;
+}
+
+li {
+    list-style: none;
+}
+
+.followers-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.repos {
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.repos:hover {
+    font-size: 30px;
+}
+
+.followers,
+.public-repo,
+.gist {
+    padding: 10px;
+}
+
+.nav-bar-container {
+    background: #337ab7;
+}
+
+.nav {
+    color: white;
+}
+
+#search-input {
+    width: 70%;
+    text-align: center;
+}
+
+.search-btn {
+    background: #337ab7;
+    color: white;
+    padding: 5px;
+    width: 123px;
+    border: 1px solid white;
+    border-radius: 4px;
+}
+
+.form {
+    display: flex;
+    margin: auto;
+    width: 50%;
+}
+
+.github-icon {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#home {
+    color: white;
+    font-size: large;
+}
+
+#search-profiles {
+    color: white;
+    font-size: large;
+}
+
+#about {
+    color: white;
+    font-size: large;
+    text-decoration: none;
+}
+
+#nav {
+    float: right;
+    clear: both;
+}
+
+
+/* media querries for phones */
+
+@media only screen and (max-width: 600px) {
+    .grid-container {
+        display: block;
+    }
+    .grid-item {
+        margin: 20px;
+        border: 1px dotted grey;
+    }
+    .profile-details {
+        display: block;
+        margin: auto;
+        width: 50%;
+    }
+    .round-img {
+        margin-left: -18px;
+    }
+    .github-icon {
+        font-size: 25px;
+        font-weight: bold;
+    }
 }
